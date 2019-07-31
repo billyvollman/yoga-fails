@@ -28,6 +28,7 @@ post '/users' do
   user.password = params[:password]
   user.save
   erb :index
+  redirect '/'
 end
 
 
