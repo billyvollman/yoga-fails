@@ -3,7 +3,8 @@
 <% else %>
     <% @fails.each do |fail| %>
             <p><%= fail.title %></p>
-            <img src="<%= fail.image_url %>" alt="">
+            <a href="/fails/<%= fail.id %>"> <img src="<%= fail.image_url %>" alt=""></a>
+           
             <p><%= fail.image_url %></p>
     <% end %>
 

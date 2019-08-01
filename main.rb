@@ -31,6 +31,7 @@ end
 
 get '/my_fails' do
   @fails = Fail.where(user_id: session[:user_id])
+  # @fail = Fail.find(params[:id])
   erb :my_fails
 end
 
@@ -51,7 +52,6 @@ end
 
 get '/fails/:id' do
   @fail = Fail.find(params[:id])
-  @fails = Fail.where(user_id: session[:user_id])
   @comments = Comment.where(fail_id: params[:id])
   erb :show
 end

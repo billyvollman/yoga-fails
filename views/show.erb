@@ -15,12 +15,14 @@
 
 <% else %>
 
-    <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
+    <% if session[:user_id] == @fail.user_id.to_i %>
+        <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
 
-    <form action="/fails/<%= @fail.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button>delete</button>
-    </form>
+        <form action="/fails/<%= @fail.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button>delete</button>
+        </form>
+    <% end %>
 
     <h2>comments</h2>
 
@@ -35,3 +37,5 @@
     <% end %>
 
 <% end %>
+
+
