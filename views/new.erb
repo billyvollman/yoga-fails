@@ -1,0 +1,23 @@
+<h1>post new Yoga fail</h1>
+
+<form action="/fails" method="post">
+<label for="">title</label>
+<input type="text" name="title">
+<label for="">location</label>
+<input type="text" name="location">
+<label for="">tags</label>
+<input type="text" name="tags">
+<label for="">image_url</label>
+<input type="text" name="image_url">
+<button>create</button>
+</form>
+
+CREATE TABLE fails (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(300),
+    location VARCHAR(1000),
+    tags VARCHAR(1000),
+    image_url TEXT,
+    user_id VARCHAR(300),
+    created_at TIMESTAMPTZ
+);

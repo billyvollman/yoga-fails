@@ -1,3 +1,14 @@
 
 
 <h1>Yoga Fails</h1>
+
+<a href="/fails/new">post new Yoga Fail</a>
+
+<% @fails.each do |fail| %>
+
+    <p><a href="/fails/<%=fail.id %>"> <%= fail.title %> </a></p>
+
+    <p><%= fail.title %></p>
+    <img src="<%= fail.image_url %>" alt="<%= fail.title %>">
+ 
+<% end %>

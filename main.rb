@@ -34,6 +34,21 @@ get '/my_fails' do
   erb :my_fails
 end
 
+get '/fails/new' do
+  erb :new
+end
+
+post '/fails' do
+  fail = Fail.new
+  fail.title = params[:title]
+  fail.location = params[:location]
+  fail.tags = params[:tags]
+  fail.image_url = params[:image_url]
+  fail.user_id = session[:user_id]
+  fail.save
+  redirect '/'
+end
+
 get '/createaccount' do
   erb :createaccount
 end
