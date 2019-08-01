@@ -30,7 +30,7 @@ get '/' do
 end
 
 get '/my_fails' do
-  @fails = Fail.all
+  @fails = Fail.where(user_id: session[:user_id])
   erb :my_fails
 end
 
@@ -49,12 +49,21 @@ post '/fails' do
   redirect '/'
 end
 
-# get '/dishes/:id' do
-#   # redirect '/login' unless session[:user_id]
-#   @dish = Dish.find(params[:id])
-#   @comments = Comment.where(dish_id: params[:id])
-#   erb :show
-# end
+get '/fails/:id' do
+  @fail = Fail.find(params[:id])
+  @fails = Fail.where(user_id: session[:user_id])
+  @comments = Comment.where(fail_id: params[:id])
+  erb :show
+end
+
+post '/comments' do
+  comment = Comment.new
+  comment.body = params[:body]
+  comment.fail_id = params[:fail_id]
+  comment.user_id = session[:user_id]
+  comment.save
+  redirect"/fails/#{params[:fail_id]}"
+end
 
 get '/createaccount' do
   erb :createaccount
@@ -81,14 +90,13 @@ get '/login' do
 end
 
 post '/sessions' do
-user = User.find_by(email: params[:email])
-if user && user.authenticate(params[:password])
-  session[:user_id] = user.id
-  redirect "/"
-else
-  erb :login
-end
-
+  user = User.find_by(email: params[:email])
+  if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    redirect "/"
+  else
+    erb :login
+  end
 end
 
 delete '/sessions' do

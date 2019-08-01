@@ -1,0 +1,37 @@
+<h1>details</h1>
+<div>
+    <%= @fail.title %>
+</div>
+<div>
+    <img src="<%= @fail.image_url %>" alt="<%= @fail.title %>">
+</div>
+
+<% if session[:user_id] == nil %>
+    <h2>comments</h2>
+
+    <% @comments.each do |comment| %>
+        <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %> </p>
+    <% end %>
+
+<% else %>
+
+    <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
+
+    <form action="/fails/<%= @fail.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>delete</button>
+    </form>
+
+    <h2>comments</h2>
+
+    <form action="/comments" method="post">
+        <textarea name="body"></textarea>
+        <input type="hidden" name="fail_id" value="<%= @fail.id %>">
+        <button>post comment</button>
+    </form>
+
+    <% @comments.each do |comment| %>
+        <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %> </p>
+    <% end %>
+
+<% end %>
