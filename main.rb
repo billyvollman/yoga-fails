@@ -49,6 +49,13 @@ post '/fails' do
   redirect '/'
 end
 
+# get '/dishes/:id' do
+#   # redirect '/login' unless session[:user_id]
+#   @dish = Dish.find(params[:id])
+#   @comments = Comment.where(dish_id: params[:id])
+#   erb :show
+# end
+
 get '/createaccount' do
   erb :createaccount
 end
