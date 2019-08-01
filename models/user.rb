@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     has_many :comments
+    has_many :likes
 
     # adds methods to user
 

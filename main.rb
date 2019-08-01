@@ -6,8 +6,33 @@ require_relative 'models/comment'
 require_relative 'models/user'
 require_relative 'models/like'
 
+enable :sessions
+
+helpers do
+
+  def logged_in? # predicate method - will return a boolean
+    # alternative is !!session[:user_id]
+    # alternative is !!current_user
+    # no need for the if else statement
+    if current_user
+      true
+    else
+      false
+    end
+  end
+
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
+
+end
+
+after do
+  ActiveRecord::Base.connection.close
+end
 
 get '/' do
+  @fails = Fail.all
   erb :index
 end
 
@@ -27,9 +52,27 @@ post '/users' do
   user.email = params[:email]
   user.password = params[:password]
   user.save
-  erb :index
+  session[:user_id] = user.id
   redirect '/'
 end
 
+get '/login' do
+  erb :login
+end
 
+post '/sessions' do
+user = User.find_by(email: params[:email])
+if user && user.authenticate(params[:password])
+  session[:user_id] = user.id
+  redirect "/"
+else
+  erb :login
+end
+
+end
+
+delete '/sessions' do
+session[:user_id] = nil
+redirect '/login'
+end
 
