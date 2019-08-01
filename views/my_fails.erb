@@ -1,0 +1,9 @@
+<% if @fails == [] %>
+    You have no current Yoga Fails
+<% else %>
+    <% @fails.each do |dish| %>
+        <p><%= fail.title %></p>
+        <img src="<%= fail.image_url %>" alt="">
+        <p><%= fail.image_url %></p>
+    <% end %>
+<% end %>

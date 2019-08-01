@@ -10,15 +10,8 @@ enable :sessions
 
 helpers do
 
-  def logged_in? # predicate method - will return a boolean
-    # alternative is !!session[:user_id]
-    # alternative is !!current_user
-    # no need for the if else statement
-    if current_user
-      true
-    else
-      false
-    end
+  def logged_in? 
+    !!current_user
   end
 
   def current_user
@@ -34,6 +27,11 @@ end
 get '/' do
   @fails = Fail.all
   erb :index
+end
+
+get '/my_fails' do
+  @fails = Fail.all
+  erb :my_fails
 end
 
 get '/createaccount' do
