@@ -1,5 +1,5 @@
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require_relative 'database_config'
 require_relative 'models/fail'
 require_relative 'models/comment'

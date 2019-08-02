@@ -4,8 +4,6 @@
     <% @fails.each do |fail| %>
             <p><%= fail.title %></p>
             <a href="/fails/<%= fail.id %>"> <img src="<%= fail.image_url %>" alt=""></a>
-           
-            <p><%= fail.image_url %></p>
     <% end %>
 
 <% end %>

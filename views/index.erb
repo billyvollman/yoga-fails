@@ -3,12 +3,13 @@
 
     <% @fails.each do |fail| %>
 
-        <div class="home_image">
+       <div class="home_image">
             <div><%= fail.title %></div>
             <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
         </div>
 
     <% end %>
+    
 <% else %>
 
     <a href="/fails/new">post new Yoga Fail</a>
@@ -18,7 +19,6 @@
     <% @fails.each do |fail| %>
 
         <div class="home_image">
-            <%  %>
             <div><%= fail.title %></div>
             <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
         </div>
