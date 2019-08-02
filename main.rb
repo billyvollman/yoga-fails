@@ -25,7 +25,7 @@ after do
 end
 
 get '/' do
-  @fails = Fail.all
+  @fails = Fail.order('created_at DESC')
   erb :index
 end
 

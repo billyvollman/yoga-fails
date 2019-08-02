@@ -1,0 +1,17 @@
+p {
+    
+}
+
+a {
+    
+}
+
+.home_image {
+    display: inline-block;
+    width: 15vw;
+}
+
+.home_image img {
+    width: 100%;
+    height: 100%;
+}
