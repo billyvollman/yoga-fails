@@ -70,6 +70,12 @@ put '/fails/:id' do
   redirect "/fails/#{params[:id]}"
 end
 
+delete '/fails/:id' do
+  fail = Fail.find(params[:id])
+  fail.delete
+  redirect "/my_fails"
+end
+
 post '/comments' do
   comment = Comment.new
   comment.body = params[:body]
