@@ -56,6 +56,20 @@ get '/fails/:id' do
   erb :show
 end
 
+get '/fails/:id/edit' do
+  @fail = Fail.find(params[:id])
+  erb :edit
+end
+
+put '/fails/:id' do
+  fail = Fail.find(params[:id])
+  fail.title = params[:title]
+  fail.location = params[:location]
+  fail.tags = params[:tags]
+  fail.save
+  redirect "/fails/#{params[:id]}"
+end
+
 post '/comments' do
   comment = Comment.new
   comment.body = params[:body]
