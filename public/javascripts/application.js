@@ -12,4 +12,7 @@ var changeInput = function() {
     }
 }
 
-showButton.addEventListener('click', changeInput)
+if (showButton) {
+    showButton.addEventListener('click', changeInput)
+}
+
