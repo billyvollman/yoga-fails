@@ -4,7 +4,7 @@
     <% @fails.each do |fail| %>
 
        <div class="home_image">
-            <div><%= fail.title %></div>
+            <div class="fail_title"><%= fail.title %></div>
             <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
         </div>
 
@@ -19,7 +19,7 @@
     <% @fails.each do |fail| %>
 
         <div class="home_image">
-            <div><%= fail.title %></div>
+            <div class="fail_title"><%= fail.title %></div>
             <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
         </div>
     

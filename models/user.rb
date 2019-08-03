@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
     has_many :comments
     has_many :likes
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
+
 
     # adds methods to user
 

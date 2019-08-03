@@ -31,10 +31,17 @@
         <input type="hidden" name="fail_id" value="<%= @fail.id %>">
         <button>post comment</button>
     </form>
-
+    
     <% @comments.each do |comment| %>
-        <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %> </p>
+        <% if comment.user_id == session[:user_id] %>
+            <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %>
+            <button>edit</button>
+            <button>delete</button>
+        <% else %>
+            <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %>
+        <% end %>    
     <% end %>
+    
 
 <% end %>
 

@@ -6,6 +6,7 @@ require_relative 'models/comment'
 require_relative 'models/user'
 require_relative 'models/like'
 
+
 enable :sessions
 
 helpers do
@@ -100,6 +101,7 @@ post '/users' do
   user.country = params[:country]
   user.email = params[:email]
   user.password = params[:password]
+  address = user.email
   user.save
   session[:user_id] = user.id
   redirect '/'
