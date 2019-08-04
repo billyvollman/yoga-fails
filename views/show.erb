@@ -16,7 +16,7 @@
     <h2>comments</h2>
 
     <% @comments.each do |comment| %>
-        <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %> </p>
+        <p><span style="font-weight: bold; font-size: 20px;"> <%= comment.user.username %> </span> <%= comment.body %> </p>
     <% end %>
 
 <% else %>
@@ -53,7 +53,7 @@
         <% if comment.user_id == session[:user_id] %>
             <div>
                 <%# the inline button %>
-                <p><span style="font-weight: bold;"> <%= comment.user.username %> </span> 
+                <p><span style="font-weight: bold; "> <%= comment.user.username %> </span> 
                 <span class="comment"><%= comment.body %>
                     <button class="editButton">edit</button>
                     <form action="/comments" method="post">

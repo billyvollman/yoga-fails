@@ -1,29 +1,12 @@
-<% if session[:user_id] == nil %>
-    <h1>Yoga Fails</h1>
 
-    <% @fails.each do |fail| %>
+<% @fails.each do |fail| %>
 
-       <div class="home_image">
-            <div class="fail_title"><%= fail.title %></div>
-            <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
-        </div>
-
-    <% end %>
+    <div class="home_images">
+        <div class="fail_title"><%= fail.title %></div>
+        <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
+    </div>
     
-<% else %>
-
-    <a href="/fails/new">post new Yoga Fail</a>
-
-    <h1>Yoga Fails</h1>
-
-    <% @fails.each do |fail| %>
-
-        <div class="home_image">
-            <div class="fail_title"><%= fail.title %></div>
-            <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
-        </div>
-    
-    <% end %>
-
 <% end %>
+
+
 

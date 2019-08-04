@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <title>Yoga Fails</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/css?family=Copse&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="headerbg">
   <header>
-  
-  </header>
-</div>
+    <h1>Yoga Fails</h1>
   <% if logged_in? %>
 
     <div>logged in as <%= current_user.username %></div>
@@ -21,10 +24,17 @@
       <input type="hidden" name="_method" value="delete">
       <button>logout</button>
     </form>
+
+  <a class="newPostLink" href="/fails/new">post new Yoga Fail</a>
+
   <% else %>
     <a href="/login">Login</a> or <a href="/createaccount">create an account</a>
-  <% end %>
 
+  <% end %>
+</header>
+</div>
+
+<div class="stopFailing"> <a href="/stopfailing">Stop failing</a> </div>
 
   <%= yield %>
 
