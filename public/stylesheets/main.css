@@ -72,3 +72,31 @@ a {
     padding: 10px 0 20px;
     font-weight: bold;
 }
+
+img {
+    width: 30%;
+}
+
+.hide {
+    display: none;
+}
+
+.comment {
+    padding-right: 10px;
+}
+
+.logoutForm {
+    display: inline;
+    padding-left: 10px;
+}
+
+.deleteFailForm {
+    display: inline;
+    padding-left: 10px;
+}
+
+.deleteCommentForm {
+    display: inline;
+    padding-left: 10px;
+}
+

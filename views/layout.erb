@@ -8,7 +8,7 @@
 <body>
 <div class="headerbg">
   <header>
-
+  
   </header>
 </div>
   <% if logged_in? %>
@@ -17,7 +17,7 @@
 
     <a href="/my_fails">your Yoga Fails</a>
 
-    <form action="/sessions" method="post">
+    <form class="logoutForm" action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
       <button>logout</button>
     </form>

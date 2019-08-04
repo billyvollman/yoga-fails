@@ -1,0 +1,10 @@
+<h1>edit comment</h1>
+
+<form action="/comments" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="id" value= "<%= @comment.id %>">
+    <input type="text" name="body" value="<%= @comment.body %>">
+    <input type="hidden" name="fail_id" value="<%= @comment.fail_id %>">
+    <input type="hidden" name="user_id" value= "<%= @comment.user_id%>">
+    <button>update</button>
+</form>

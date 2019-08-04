@@ -86,6 +86,26 @@ post '/comments' do
   redirect"/fails/#{params[:fail_id]}"
 end
 
+put '/comments' do
+  comment = Comment.find(params[:id])
+  comment.body = params[:body]
+  comment.fail_id = params[:fail_id]
+  comment.user_id = session[:user_id]
+  comment.save
+  redirect"/fails/#{params[:fail_id]}"
+end
+
+get '/comments/:id/edit' do
+  @comment = Comment.find(params[:id])
+  erb :comment_edit
+end
+
+delete '/comments' do
+  comment = Comment.find(params[:id])
+  comment.delete
+  redirect"/fails/#{params[:fail_id]}"
+end
+
 get '/createaccount' do
   erb :createaccount
 end
@@ -112,13 +132,34 @@ get '/login' do
 end
 
 post '/sessions' do
-  user = User.find_by(email: params[:email])
-  if user && user.authenticate(params[:password])
-    session[:user_id] = user.id
-    redirect "/"
-  else
-    erb :login
+  if User.find_by(username: params[:username])
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/"
+    else
+      erb :login
+    end
+
+  else User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/"
+    else
+      erb :login
+    end
+
   end
+
+  # user = User.find_by(username: params[:username])
+  # user = User.find_by(email: params[:email])
+  # if user && user.authenticate(params[:password])
+  #   session[:user_id] = user.id
+  #   redirect "/"
+  # else
+  #   erb :login
+  # end
 end
 
 delete '/sessions' do
