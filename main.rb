@@ -170,8 +170,8 @@ end
 
 get '/stopfailing' do
   user = User.find(session[:user_id])
-  @key = "AIzaSyBoFg7-LDZFZTCbEJ0Q6Uf8x2pFUaq-4cc"
-  search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=yoga+in+melbourne&key=AIzaSyBoFg7-LDZFZTCbEJ0Q6Uf8x2pFUaq-4cc"
+  @key = ENV["GOOGLE_API_KEY"]
+  search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=yoga+in+melbourne&key=#{@key}"
   search_result = HTTParty.get(search_url)
   @yoga_studios = search_result["results"]
   erb :stopfailing
