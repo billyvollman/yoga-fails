@@ -169,10 +169,14 @@ redirect '/login'
 end
 
 get '/stopfailing' do
-  user = User.find(session[:user_id])
-  @key = ENV["GOOGLE_API_KEY"]
-  search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=yoga+in+melbourne&key=#{@key}"
-  search_result = HTTParty.get(search_url)
-  @yoga_studios = search_result["results"]
-  erb :stopfailing
+  if logged_in? 
+    user = User.find(session[:user_id])
+    @key = ENV["GOOGLE_API_KEY"]
+    search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=yoga+in+melbourne&key=#{@key}"
+    search_result = HTTParty.get(search_url)
+    @yoga_studios = search_result["results"]
+    erb :stopfailing
+  else
+    redirect '/createaccount'
+  end
 end
