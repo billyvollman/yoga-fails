@@ -123,9 +123,13 @@ post '/users' do
   user.email = params[:email]
   user.password = params[:password]
   address = user.email
-  user.save
-  session[:user_id] = user.id
-  redirect '/'
+  if user.valid?
+    user.save
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    redirect '/createaccount'
+  end
 end
 
 get '/login' do
