@@ -3,7 +3,7 @@ Creating my first CRUD web app using Ruby and Sinatra.
 Website will be about **Yoga Fails**.
 
 Link to my project is here:
-[Yoga Fails](https://vast-refuge-53212.herokuapp.com/)
+[Yoga Fails](https://yogafails.herokuapp.com/)
 
 The idea of web app is to have a laugh at Yoga Fails (photos or gifs) and to encourage users to upload the Yoga Fails they witness or take part in.  In addition to having a laugh, I'd like to also link the page to places where people can learn or participate in Yoga, so they can learn and stop failing.  On the stop failing page Yoga studios and yoga groups will be able to list information about themselves.  It will be a directory for people to learn more about Yoga studios and events in their local area.  The stop failing page is a stretch goal.
 
