@@ -5,7 +5,8 @@ require_relative 'models/fail'
 require_relative 'models/comment'
 require_relative 'models/user'
 require_relative 'models/like'
-
+require 'httparty'
+require 'pry'
 
 enable :sessions
 
@@ -167,3 +168,11 @@ session[:user_id] = nil
 redirect '/login'
 end
 
+get '/stopfailing' do
+  user = User.find(session[:user_id])
+  @key = "AIzaSyBoFg7-LDZFZTCbEJ0Q6Uf8x2pFUaq-4cc"
+  search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=yoga+in+melbourne&key=AIzaSyBoFg7-LDZFZTCbEJ0Q6Uf8x2pFUaq-4cc"
+  search_result = HTTParty.get(search_url)
+  @yoga_studios = search_result["results"]
+  erb :stopfailing
+end

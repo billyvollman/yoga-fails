@@ -1,0 +1,9 @@
+<% @yoga_studios.each do |studio| %>
+
+    <div><%= studio["name"] %></div>
+    <div><%= studio["formatted_address"]%></div>
+    <% if studio["photos"] != nil %>
+        <div>Findout more about <%= studio["photos"][0]["html_attributions"][0] %></div>
+        <div><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=<%=studio["photos"][0]["photo_reference"]%>&key=<%=@key%>" alt=""></div>
+    <% end %>
+<% end %>

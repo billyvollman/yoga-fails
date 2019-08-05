@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
+    # include ActiveModel::Validations
     has_many :comments
     has_many :likes
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
-
+    # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
+    validates :firstname, presence: true
+    validates :firstname, length: { minimum: 2 }
 
     # adds methods to user
 
@@ -17,3 +19,8 @@ class User < ActiveRecord::Base
     # returns the user object if the password matches
     # else return false
 end
+
+# class User < ApplicationRecord
+#     validates :firstname, presence: { message: "must be given please" }
+
+# end
