@@ -128,7 +128,17 @@ post '/users' do
     session[:user_id] = user.id
     redirect '/'
   else
-    redirect '/createaccount'
+    error = user.errors.messages
+    @username = error[:username][0]
+    @firstname = error[:firstname][0]
+    @lastname = error[:lastname][0]
+    @street_address = error[:street_address][0]
+    @city = error[:city][0]
+    @postcode = error[:postcode][0]
+    @country = error[:country][0]
+    @email = error[:email][0]
+    @password = error[:password][0]
+    erb :users
   end
 end
 
