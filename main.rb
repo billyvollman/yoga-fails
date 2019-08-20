@@ -178,8 +178,8 @@ post '/sessions' do
 end
 
 delete '/sessions' do
-session[:user_id] = nil
-redirect '/login'
+  session[:user_id] = nil
+  redirect '/login'
 end
 
 get '/stopfailing' do

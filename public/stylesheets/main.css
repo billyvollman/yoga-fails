@@ -15,19 +15,28 @@ body {
       }
 } */
 
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(238, 238, 238, 0.55);
+}
+
 .headerbg {
-    background: url(https://media1.tenor.com/images/c6ada00dd16b318fe528d1c7cd7405a2/tenor.gif?itemid=12099593);
-    background-position: -100px -450px;
+    background-image: url(https://media1.tenor.com/images/c6ada00dd16b318fe528d1c7cd7405a2/tenor.gif?itemid=12099593);
+    /* background-attachment: fixed; */
+    background-position: -100px 415px;
     height: 100%;
-    background-repeat: repeat;
+    /* background-repeat: repeat-x; */
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
 }
 
 header {
     /* background: url(https://media.giphy.com/media/8UNoxeQShkPmM/giphy.gif); */
     /* background: url(https://www.youtube.com/embed/QaMgGbDQ50w?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1); */
     background-color: rgba(238, 238, 238, 0.55);
-    
     padding: 80px 0 80px;
     
 }
@@ -39,6 +48,7 @@ header h1 {
     line-height: 0;
     color: #fff;
 }
+
 
 body {
     /* background: #fee938 url(yogawine.gif) no-repeat 0 0;
@@ -61,9 +71,6 @@ body {
     src="https://youtube.com/embed/zBXMPRG8y08?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1">
   </iframe> */
 
-p {
-    
-}
 
 .newPostLink {
     display: block;
@@ -97,8 +104,21 @@ img {
     display: none;
 }
 
+.user_usernames,
+.user_comments,
+.delete_comments,
+.update_comments {
+    display: inline;
+}
+
+.user_usernames {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .comment {
     padding-right: 10px;
+    display: inline;
 }
 
 .logoutForm {
@@ -115,4 +135,62 @@ img {
     display: inline;
     padding-left: 10px;
 }
+
+.business-name {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.business-info {
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.business-image {
+    width: 100%;
+}
+
+.business-contact-details {
+    align-self: center;
+    text-align: left;
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+@media (max-width: 55em) {
+    header h1 {
+        font-size: 4em;
+    }
+    .headerbg {
+        background-position: -70px 220px;
+    }
+
+    header {
+        padding: 50px 0;
+    }
+    
+} 
+
+@media (max-width: 30em) {
+    .headerbg {
+        background-position: -30px bottom;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav {
+        font-size: 1vh;
+        flex-flow: column wrap;
+    }
+
+    header {
+        padding: 20px 0;
+    }
+    
+} 
+
 

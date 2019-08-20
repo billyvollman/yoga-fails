@@ -16,7 +16,10 @@
     <h2>comments</h2>
 
     <% @comments.each do |comment| %>
-        <p><span style="font-weight: bold; font-size: 20px;"> <%= comment.user.username %> </span> <%= comment.body %> </p>
+        <div>
+            <div class="user_usernames"><%= comment.user.username %></div>
+            <div class="user_comments"><%= comment.body %></div> 
+        </div>
     <% end %>
 
 <% else %>
@@ -53,17 +56,17 @@
         <% if comment.user_id == session[:user_id] %>
             <div>
                 <%# the inline button %>
-                <p><span style="font-weight: bold; "> <%= comment.user.username %> </span> 
-                <span class="comment"><%= comment.body %>
+                <div class="user_usernames"><%= comment.user.username %></div>
+                <div class="user_comments"><%= comment.body %></div> 
                     <button class="editButton">edit</button>
-                    <form action="/comments" method="post">
+                    <form class="delete_comments" action="/comments" method="post">
                         <input type="hidden" name="_method" value="delete">
                         <input type="hidden" name="id" value="<%= comment.id %>">
                         <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
                         <button class="deleteButton">delete</button>
                     </form>
                 </span>    
-                    <form action="/comments" method="post">
+                    <form class="update_comments" action="/comments" method="post">
                         <input type="hidden" name="_method" value="put">
                         <input type="hidden" name= "id" value= "<%= comment.id %>">
                         <input class="commentInput" type="hidden" name="body" value="<%= comment.body %>">
@@ -71,9 +74,9 @@
                         <input type="hidden" name="user_id" value= "<%= comment.user_id %>">
                         <button class="updateButton hide">update</button>
                     </form>
-                    </p>
 
                     <%# the link for updating comment %>
+<!-----
                     <span style="font-weight: bold;"> <%= comment.user.username %> </span> 
                     <span class="comment"><%= comment.body %></span>
 
@@ -84,6 +87,7 @@
                         <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
                         <button class="deleteButton">delete</button>
                     </form>
+------->
             </div>
 
         <% else %>
