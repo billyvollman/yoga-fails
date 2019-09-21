@@ -1,26 +1,34 @@
-<div> 
-    <p>
-    At Yoga fails we enjoy a good laugh but also understand that people might want to stop failing at Yoga.  With that in mind we have put together a listing of Yoga studios in your local area.</p>
-    <p>
-    So if you are wanting to stop failing, we'd encourage to join one of your local Yoga studios and start your journey towards no longer failing!
-    </p>
-</div>  
+<div class="business-body">
 
-<div class="businesses">
-    
-    <% @yoga_studios.each do |studio| %>
-        <div class="business-name"><%= studio["name"] %></div>
+    <div class="business-intro">
+        <section>
+        At Yoga fails we enjoy a good laugh but also understand that people might want to stop failing at Yoga.  With that in mind we have put together a listing of Yoga studios in your local area.
+        </section>
+        <section>
+        So if you are wanting to stop failing, we'd encourage to join one of your local Yoga studios and start your journey towards no longer failing!
+        </section>
+    </div>
 
-            <div class="business-info">
-                <% if studio["photos"] != nil %>
-                    <div class="business-image"><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=<%=studio["photos"][0]["photo_reference"]%>&key=<%=@key%>" alt=""></div>
-                    
-                    <div class="business-contact-details">
-                        <div>Findout more about <%= studio["photos"][0]["html_attributions"][0] %></div>
-                 <% end %>
-                        <div><%= studio["formatted_address"]%></div>
+    <div class="businesses">
+            <% @yoga_studios.each do |studio| %>
+
+                <div class="businesses-border">
+                    <div class="business-name"><%= studio["name"] %></div>
+                    <div class="business-info">
+                        <% if studio["photos"] != nil %>
+                            <div class="business-image">
+                                <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=<%=studio["photos"][0]["photo_reference"]%>&key=<%=@key%>" alt="">
+                            </div>
+                            
+                            <div class="business-contact-details">
+                                <div>Findout more about <%= studio["photos"][0]["html_attributions"][0] %></div>
+                        <% end %>
+                                <div><%= studio["formatted_address"]%></div>
+                            </div>
                     </div>
-            </div>
-    <% end %>
-   
+
+                </div>
+            <% end %>
+    </div>
+
 </div>

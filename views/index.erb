@@ -1,12 +1,16 @@
 
-<% @fails.each do |fail| %>
+<div class="center-align-container">
 
-    <div class="home_images">
-        <div class="fail_title"><%= fail.title %></div>
-        <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
-    </div>
-    
-<% end %>
+    <% @fails.each do |fail| %>
+
+        <div class="home_images">
+            <div class="fail_title"><%= fail.title %></div>
+            <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
+        </div>
+        
+    <% end %>
+
+</div>
 
 
 

@@ -1,12 +1,14 @@
-<h1>edit Yoga Fail</h1>
+<div class="center-align-container">
+    <h1>edit Yoga Fail</h1>
 
-<form action="/fails/<%= @fail.id %>" method="post">
-    <input type="hidden" name="_method" value="put">
-    <label for="">title</label>
-    <input type="text" name="title" value="<%= @fail.title %>">
-    <label for="">location</label>
-    <input type="text" name="location" value="<%= @fail.location %>">
-    <label for="">tags</label>
-    <input type="text" name="tags" value="<%= @fail.tags %>">
-    <button>update</button>
-</form>
+    <form action="/fails/<%= @fail.id %>" method="post">
+        <input type="hidden" name="_method" value="put">
+        <label for="">title</label>
+        <input type="text" name="title" value="<%= @fail.title %>">
+        <label for="">location</label>
+        <input type="text" name="location" value="<%= @fail.location %>">
+        <label for="">tags</label>
+        <input type="text" name="tags" value="<%= @fail.tags %>">
+        <button>update</button>
+    </form>
+</div>
