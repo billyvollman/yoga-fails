@@ -11,23 +11,23 @@
 
     <div class="businesses">
             <% @yoga_studios.each do |studio| %>
-
+                 <% if studio["photos"] != nil %>
                 <div class="businesses-border">
                     <div class="business-name"><%= studio["name"] %></div>
                     <div class="business-info">
-                        <% if studio["photos"] != nil %>
+                       
                             <div class="business-image">
                                 <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=<%=studio["photos"][0]["photo_reference"]%>&key=<%=@key%>" alt="">
                             </div>
                             
                             <div class="business-contact-details">
                                 <div>Findout more about <%= studio["photos"][0]["html_attributions"][0] %></div>
-                        <% end %>
                                 <div><%= studio["formatted_address"]%></div>
                             </div>
                     </div>
 
                 </div>
+                <% end %>
             <% end %>
     </div>
 
