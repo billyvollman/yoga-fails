@@ -23,6 +23,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
     background-color: rgba(238, 238, 238, 0.55);
+    text-align: center;
 }
 
 .headerbg {
