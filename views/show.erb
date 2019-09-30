@@ -1,104 +1,117 @@
-<div class="center-align-container">
+<%# <div class="center-align-container"> %>
 
-<h1>details</h1>
+<%# <h1>details</h1> %>
 <% if session[:user_id] == nil %>
-    <div>
-        Location: <%= @fail.location %>
-    </div>
-    <div>
-        <img src="<%= @fail.image_url %>" alt="<%= @fail.title %>">
-    </div>
-    <div>
-        <%= @fail.title %>
-    </div>
-    <div>    
-        <%= @fail.tags %>
-    </div>
-
-    <h2>comments</h2>
-
-    <% @comments.each do |comment| %>
-        <div>
-            <div class="user_usernames"><%= comment.user.username %></div>
-            <div class="user_comments"><%= comment.body %></div> 
+    <div class="row">
+        <div class="column1">
+            <img src="<%= @fail.image_url %>" alt="<%= @fail.title %>">
         </div>
-    <% end %>
-
-<% else %>
-    <div>
-        Location: <%= @fail.location %>
-    </div>
-    <% if session[:user_id] == @fail.user_id.to_i %>
-        <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
-
-        <form class="deleteFailForm" action="/fails/<%= @fail.id %>" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <button>delete</button>
-        </form>
-    <% end %>
-
-    <div>
-        <img src="<%= @fail.image_url %>" alt="<%= @fail.title %>">
-    </div>
-    <div>
-        <%= @fail.title %>
-    </div>
-    <div>    
-        <%= @fail.tags %>
-    </div>
-    <h2>comments</h2>
-
-    <form action="/comments" method="post">
-        <textarea name="body"></textarea>
-        <input type="hidden" name="fail_id" value="<%= @fail.id %>">
-        <button>post comment</button>
-    </form>
-    
-    <% @comments.each do |comment| %>
-        <% if comment.user_id == session[:user_id] %>
-            <div>
-                <%# the inline button %>
-                <div class="user_usernames"><%= comment.user.username %></div>
-                <div class="user_comments"><%= comment.body %></div> 
-                    <button class="editButton">edit</button>
-                    <form class="delete_comments" action="/comments" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="id" value="<%= comment.id %>">
-                        <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
-                        <button class="deleteButton">delete</button>
-                    </form>
-                </span>    
-                    <form class="update_comments" action="/comments" method="post">
-                        <input type="hidden" name="_method" value="put">
-                        <input type="hidden" name= "id" value= "<%= comment.id %>">
-                        <input class="commentInput" type="hidden" name="body" value="<%= comment.body %>">
-                        <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
-                        <input type="hidden" name="user_id" value= "<%= comment.user_id %>">
-                        <button class="updateButton hide">update</button>
-                    </form>
-
-                    <%# the link for updating comment %>
-<!-----
-                    <span style="font-weight: bold;"> <%= comment.user.username %> </span> 
-                    <span class="comment"><%= comment.body %></span>
-
-                    <a href="/comments/<%= comment.id %>/edit">edit</a>
-                    <form class="deleteCommentForm" action="/comments" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="id" value="<%= comment.id %>">
-                        <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
-                        <button class="deleteButton">delete</button>
-                    </form>
-------->
+        <div class="column2">
+            <div class="top">
+                <div>
+                    <img class="avatar" src="https://instagram.fmel8-1.fna.fbcdn.net/vp/2821b7946b9970a2a9733b64fcacb684/5E3B2DFD/t51.2885-19/s150x150/28150832_204861536925604_5328085111701241856_n.jpg?_nc_ht=instagram.fmel8-1.fna.fbcdn.net" alt="">
+                </div>
+                <div>
+                    <%= @listing_owner_username %>
+                </div>
+                <div>
+                    Location: <%= @fail.location %>
+                </div>
             </div>
+            <div class="middle"> 
+                <div>
+                    <%= @fail.title %>
+                </div>
+                <div>
+                    <%= @fail.tags %>
+                </div>
+                <div>
+                    <h2>comments</h2>
 
-        <% else %>
-            <div><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %></div>
-        <% end %>    
-    <% end %>
-    
+                    <% @comments.each do |comment| %>
+                        <div>
+                            <div class="user_usernames"><%= comment.user.username %></div>
+                            <div class="user_comments"><%= comment.body %></div> 
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="bottom">bottom content</div>        
+        </div>
+    </div>
+<% else %>
+    <div class="row">
+        <div class="column1">
+            <img src="<%= @fail.image_url %>" alt="<%= @fail.title %>">
+        </div>
+        <div class="column2">
+            <div class="top">
+                <div>
+                    <img class="avatar" src="https://avatars0.githubusercontent.com/u/50625814?s=220&v=4" alt="">
+                </div>
+                <div>
+                    <%= @listing_owner_username %>
+                </div>
+                <div>
+                    Location: <%= @fail.location %>
+                </div>
+                <% if session[:user_id] == @fail.user_id.to_i %>
+                    <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
+                    <form class="deleteFailForm" action="/fails/<%= @fail.id %>" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <button>delete</button>
+                    </form>
+                <% end %>
+            </div>
+            <div class="middle"> 
+                <div>
+                    <%= @fail.title %>
+                </div>
+                <div>
+                    <%= @fail.tags %>
+                </div>
+                <div>
+                    <h2>comments</h2>
+                    <form action="/comments" method="post">
+                        <textarea name="body"></textarea>
+                        <input type="hidden" name="fail_id" value="<%= @fail.id %>">
+                        <button>post comment</button>
+                    </form>
 
+                    <% @comments.each do |comment| %>
+                        <% if comment.user_id == session[:user_id] %>
+                            <div>
+                            
+                                <div class="user_usernames"><%= comment.user.username %></div>
+                                <div class="user_comments"><%= comment.body %></div> 
+                                    <button class="editButton">edit</button>
+                                    <form class="delete_comments" action="/comments" method="post">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="hidden" name="id" value="<%= comment.id %>">
+                                        <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
+                                        <button class="deleteButton">delete</button>
+                                    </form>
+                                
+                                    <form class="update_comments" action="/comments" method="post">
+                                        <input type="hidden" name="_method" value="put">
+                                        <input type="hidden" name= "id" value= "<%= comment.id %>">
+                                        <input class="commentInput" type="hidden" name="body" value="<%= comment.body %>">
+                                        <input type="hidden" name="fail_id" value="<%= comment.fail_id %>">
+                                        <input type="hidden" name="user_id" value= "<%= comment.user_id %>">
+                                        <button class="updateButton hide">update</button>
+                                    </form>
+                            </div>
+
+                        <% else %>
+                            <div><span style="font-weight: bold;"> <%= comment.user.username %> </span> <%= comment.body %></div>
+                        <% end %>    
+                    <% end %>
+                </div>
+            </div>
+            <div class="bottom">bottom content</div>        
+        </div>
+    </div>
 <% end %>
 
-</div>
+<%# </div> %>
 

@@ -2,11 +2,41 @@
 <div class="center-align-container">
 
     <% @fails.each do |fail| %>
-
+        <% time_diff = (Time.current - fail.created_at) %>
+        <% time_secs = (time_diff / 1.second).round %>
+        <% time_min = (time_diff / 1.minute).round %>
+        <% time_hr = (time_diff / 1.hour).round %>
+        <% time_days = (time_diff / 1.day).round %>
         <div class="home_images">
-            <div class="fail_title"><%= fail.title %></div>
-            <a href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
+            <div class="image-header">
+                <div><img class="avatar" src="https://instagram.fmel8-1.fna.fbcdn.net/vp/fc379efb6bb7658f0038472f43edc500/5E2FD99E/t51.2885-15/e35/29088977_129714284437521_2843433444199890944_n.jpg?_nc_ht=instagram.fmel8-1.fna.fbcdn.net" alt=""></div>
+                <div class="username"><%= User.find_by(id: fail.user_id.to_i).username %></div>
+                <div>
+                <% if time_hr >= 24 %>
+                    <%= time_days %> days</div>
+                <% elsif time_hr >= 1 %>
+                    <%= time_hr %> hrs</div>
+                <% elsif time_min >= 1 %>
+                    <%= time_min %> mins</div>
+                <% else %>    
+                    <%= time_secs %> sec</div>
+                <% end %>
+            </div>
+            <section>
+                <a class="image-main" href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
+               
+                <form action="/likes" method="post">
+                    <input type="hidden" name="" value="" >
+                    <button>like</button>
+                </form>
+            </section>
+            <section>
+            </section>
+            <footer>
+            </footer>
         </div>
+
+
         
     <% end %>
 
@@ -14,3 +44,29 @@
 
 
 
+<%# <div class="center-align-container"> %>
+
+    <%# @fails.each do |fail| %>
+
+        <%# <div class="home_images"> %>
+            <%# <div class="fail_title"> %>
+                <%#= fail.title %>
+                    <%# </div> %>
+            <%# <a href="/fails/ %>
+                <%#=fail.id %>
+                    <%# "> <img src=" %>
+                        <%#= fail.image_url %>
+                            <%# " alt=" %>
+                                <%#= fail.title %>
+                                    <%# "></a> %>
+        <%# </div> %>
+        
+    <%# end %>
+
+<%# </div> %>
+
+
+
+ <%# <img class="image-main" src=" %>
+    <%#=fail.image_url %>
+        <%# " alt=""> %>

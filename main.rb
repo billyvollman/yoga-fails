@@ -28,6 +28,17 @@ end
 
 get '/' do
   @fails = Fail.order('created_at DESC')
+  # @user_id = fail.user_id.to_i
+  # fail = Fail.all
+  # fail.find_by(id: 7)
+  # fail.find_by(id: 7).user_id.to_i
+  # user_id = fail.find_by(id: 7).user_id.to_i
+  # User.find_by(id: user_id).username
+  # User.find_by(id: 2).username
+
+  # fail[0].created_at.to_date
+  # fail.created_at.strftime( "%l:%M %p, %e %b %Y")
+  # binding.pry
   erb :index
 end
 
@@ -55,6 +66,9 @@ end
 get '/fails/:id' do
   @fail = Fail.find(params[:id])
   @comments = Comment.where(fail_id: params[:id])
+  user_id = @fail.user_id.to_i
+  @listing_owner_username = User.find_by(id: user_id).username
+  
   erb :show
 end
 

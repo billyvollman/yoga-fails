@@ -4,8 +4,10 @@
         You have no current Yoga Fails
     <% else %>
         <% @fails.each do |fail| %>
-                <p><%= fail.title %></p>
-                <a href="/fails/<%= fail.id %>"> <img src="<%= fail.image_url %>" alt=""></a>
+                <div class="your-yoga-fail-photo">
+                    <p><%= fail.title %></p>
+                    <a href="/fails/<%= fail.id %>"> <img src="<%= fail.image_url %>" alt=""></a>
+                </div>
         <% end %>
 
     <% end %>

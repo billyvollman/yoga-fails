@@ -4,16 +4,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-/* @keyframes bounce-background {
-    from {
-       background-position-x: 0px;
-       background-position-y: -30px;
-      }
-      to {
-        background-position-y: -30px;
-        background-position-x: 70vw;
-      }
-} */
 
 .center-align-container {
     text-align: center;
@@ -24,14 +14,19 @@ nav {
     justify-content: space-evenly;
     background-color: rgba(238, 238, 238, 0.55);
     text-align: center;
+    padding-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+nav button {
+    color: black;
 }
 
 .headerbg {
     background-image: url(https://media1.tenor.com/images/c6ada00dd16b318fe528d1c7cd7405a2/tenor.gif?itemid=12099593);
-    /* background-attachment: fixed; */
-    background-position: -100px 415px;
+    background-position: -100px 450px;
     height: 100%;
-    /* background-repeat: repeat-x; */
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -50,52 +45,62 @@ header h1 {
     font-family: 'Lacquer', sans-serif;
     font-weight: bold;
     font-size: 9rem;
-    line-height: 0;
+    line-height: 1.5;
     color: #fff;
     text-align: center;
 }
-
-
-body {
-    /* background: #fee938 url(yogawine.gif) no-repeat 0 0;
-    /* background-color: brown; */
-    /* width: 100%;
-  margin: 0;
-  text-align: center;
-  height: 300px;
-  padding-top: 160px;
-  box-sizing: border-box;
-  -webkit-animation-name: bounce-background;
-  -webkit-animation-duration: 10s;
-  -webkit-animation-iteration-count: 100;
-  -webkit-animation-direction: alternate; */
-  /* text-align: center; */
-}
-
-/* <div style="position: fixed; z-index: -1; width: 100%; height: 100%; opacity: 10%;">
-  <iframe frameborder="0" height="100%" width="100%" 
-    src="https://youtube.com/embed/zBXMPRG8y08?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1">
-  </iframe> */
 
 
 .newPostLink {
     display: block;
 }
 
+/* .home_images {
+    display: inline-block;
+    margin: 50px 20px 0;
+} */
+
 .home_images {
     display: inline-block;
     margin: 50px 20px 0;
+    background-color: rgba(226, 201, 206, 0.5);
 }
 
-.home_images img {
-    /* width: 100%;
-    height: 100%; */
+.image-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.avatar {
+    width: 2.5vw;
+    border-radius: 50%;
+}
+
+.username {
+    margin-right: auto;
+    padding-left: 5px;
+}
+
+.image-main img {
     display: block;
     width: 300px;
     height: 300px;
     margin: auto;
     object-fit: contain;
+    background-color: white;
+    padding: 10px 0;
+    border: 2px solid rgba(226, 201, 206, 0.5);
 }
+
+/* .home_images img {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    object-fit: contain;
+} */
 
 .fail_title {
     padding: 10px 0 20px;
@@ -106,8 +111,62 @@ img {
     width: 30%;
 }
 
+.your-yoga-fail-photo {
+    padding: 20px 0;
+}
+
+.your-yoga-fail-photo p {
+    padding: 20px 0;
+}
+
 .hide {
     display: none;
+}
+
+.row {
+    display: flex;
+    height: 100vh;
+    margin: 10vh auto;
+    justify-content: center;
+    margin-bottom: -400px;
+}
+
+.column1 {
+    display: flex;
+    min-width: 35%;
+    max-height: 50%;
+}
+
+.column1 img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.column2 {
+    display: flex;
+    flex-direction: column;
+    min-width: 25%;
+    max-width: 25%;
+    max-height: 50%;
+}
+
+.top {
+    padding: 20px;
+    background-color: rgba(226, 201, 206, 0.5);
+}
+
+.middle {
+    padding: 10px 20px 0;
+    padding-bottom: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.bottom {
+    padding: 20px;
+    background-color: rgba(226, 201, 206, 0.5);
 }
 
 .user_usernames,
@@ -195,7 +254,7 @@ img {
         font-size: 4em;
     }
     .headerbg {
-        background-position: -70px 220px;
+        background-position: -70px bottom;
     }
 
     header {
