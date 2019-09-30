@@ -79,6 +79,8 @@ header h1 {
 }
 
 .username {
+    display: flex;
+    flex-direction: column;
     margin-right: auto;
     padding-left: 5px;
 }
@@ -153,6 +155,15 @@ img {
 .top {
     padding: 20px;
     background-color: rgba(226, 201, 206, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.user-details-and-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .middle {
@@ -167,6 +178,27 @@ img {
 .bottom {
     padding: 20px;
     background-color: rgba(226, 201, 206, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+
+.fail-title-show-section {
+    font-size: 2rem;
+}
+
+.edit-delete-yoga-fail {
+    display: flex;
+    flex-direction: column;
+    /* margin-left: auto; */
+   
+}
+
+.edit-delete-yoga-fail a {
+    margin-left: auto;
+}
+
+.when-listed-section {
+    text-align: right;
 }
 
 .user_usernames,
@@ -192,8 +224,7 @@ img {
 }
 
 .deleteFailForm {
-    display: inline;
-    padding-left: 10px;
+    margin-left: auto;
 }
 
 .deleteCommentForm {

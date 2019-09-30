@@ -1,6 +1,11 @@
 <%# <div class="center-align-container"> %>
 
 <%# <h1>details</h1> %>
+<% time_diff = (Time.current - @fail.created_at) %>
+<% time_secs = (time_diff / 1.second).round %>
+<% time_min = (time_diff / 1.minute).round %>
+<% time_hr = (time_diff / 1.hour).round %>
+<% time_days = (time_diff / 1.day).round %>
 <% if session[:user_id] == nil %>
     <div class="row">
         <div class="column1">
@@ -8,18 +13,18 @@
         </div>
         <div class="column2">
             <div class="top">
-                <div>
-                    <img class="avatar" src="https://instagram.fmel8-1.fna.fbcdn.net/vp/2821b7946b9970a2a9733b64fcacb684/5E3B2DFD/t51.2885-19/s150x150/28150832_204861536925604_5328085111701241856_n.jpg?_nc_ht=instagram.fmel8-1.fna.fbcdn.net" alt="">
-                </div>
-                <div>
-                    <%= @listing_owner_username %>
-                </div>
-                <div>
-                    Location: <%= @fail.location %>
+                <div class="user-details-and-time">
+                    <div>
+                        <img class="avatar" src="https://instagram.fmel8-1.fna.fbcdn.net/vp/2821b7946b9970a2a9733b64fcacb684/5E3B2DFD/t51.2885-19/s150x150/28150832_204861536925604_5328085111701241856_n.jpg?_nc_ht=instagram.fmel8-1.fna.fbcdn.net" alt="">
+                    </div>
+                    <div class="username">
+                        <div><%= @listing_owner_username %></div>
+                        <div>Location: <%= @fail.location %></div>
+                    </div>
                 </div>
             </div>
             <div class="middle"> 
-                <div>
+                <div class="fail-title-show-section">
                     <%= @fail.title %>
                 </div>
                 <div>
@@ -36,7 +41,30 @@
                     <% end %>
                 </div>
             </div>
-            <div class="bottom">bottom content</div>        
+             <div class="bottom">
+                <div class="likes-section">
+                    <button>like</button>
+                    <div>
+                        Likes <span>10 </span>
+                    </div>
+                </div>
+                <div class="when-listed-section">
+                    <div>Listed</div>
+                    <div>
+                        <% if time_hr >= 120 %>
+                            <%=@fail.created_at.strftime("%d %b %y") %>
+                        <% elsif time_hr >= 24 %>
+                            <%= time_days %> days ago
+                        <% elsif time_hr >= 1 %>
+                            <%= time_hr %> hrs ago
+                        <% elsif time_min >= 1 %>
+                            <%= time_min %> mins ago
+                        <% else %>    
+                            <%= time_secs %> sec ago
+                        <% end %>
+                    </div> 
+                </div>
+            </div> 
         </div>
     </div>
 <% else %>
@@ -45,26 +73,51 @@
             <img src="<%= @fail.image_url %>" alt="<%= @fail.title %>">
         </div>
         <div class="column2">
+            <% if session[:user_id] == @fail.user_id.to_i %>
             <div class="top">
-                <div>
-                    <img class="avatar" src="https://avatars0.githubusercontent.com/u/50625814?s=220&v=4" alt="">
+                <div class="user-details-and-time">
+                    <div>
+                        <img class="avatar" src="https://avatars0.githubusercontent.com/u/50625814?s=220&v=4" alt="">
+                    </div>
+
+                    <div class="username">
+                        <div><%= @listing_owner_username %></div>
+                        <div>Location: <%= @fail.location %></div>
+                    </div>
+                
+
+                
+                
+                    <div class="edit-delete-yoga-fail">
+                        
+                        <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
+                        <form class="deleteFailForm" action="/fails/<%= @fail.id %>" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <button>delete</button>
+                        </form>
+
+                    </div>
                 </div>
-                <div>
-                    <%= @listing_owner_username %>
-                </div>
-                <div>
-                    Location: <%= @fail.location %>
-                </div>
-                <% if session[:user_id] == @fail.user_id.to_i %>
-                    <a href="/fails/<%= @fail.id %>/edit">edit Yoga Fail</a>
-                    <form class="deleteFailForm" action="/fails/<%= @fail.id %>" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        <button>delete</button>
-                    </form>
-                <% end %>
+               
             </div>
+            <% else %>
+            <div class="top">
+                <div class="user-details-and-time">
+                    <div>
+                        <img class="avatar" src="https://avatars0.githubusercontent.com/u/50625814?s=220&v=4" alt="">
+                    </div>
+
+                    <div class="username">
+                        <div><%= @listing_owner_username %></div>
+                        <div>Location: <%= @fail.location %></div>
+                    </div>
+                </div>
+               
+            </div>
+
+             <% end %>
             <div class="middle"> 
-                <div>
+                <div class="fail-title-show-section">
                     <%= @fail.title %>
                 </div>
                 <div>
@@ -108,7 +161,30 @@
                     <% end %>
                 </div>
             </div>
-            <div class="bottom">bottom content</div>        
+             <div class="bottom">
+                <div class="likes-section">
+                    <button>like</button>
+                    <div>
+                        Likes <span>10 </span>
+                    </div>
+                </div>
+                <div class="when-listed-section">
+                    <div>Listed</div>
+                    <div>
+                        <% if time_hr >= 120 %>
+                            <%=@fail.created_at.strftime("%d %b %y") %>
+                        <% elsif time_hr >= 24 %>
+                            <%= time_days %> days ago
+                        <% elsif time_hr >= 1 %>
+                            <%= time_hr %> hrs ago
+                        <% elsif time_min >= 1 %>
+                            <%= time_min %> mins ago
+                        <% else %>    
+                            <%= time_secs %> sec ago
+                        <% end %>
+                    </div> 
+                </div>
+            </div>               
         </div>
     </div>
 <% end %>

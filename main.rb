@@ -1,12 +1,19 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require_relative 'database_config'
+
+also_reload File.expand_path(__dir__, 'models/*')
+also_reload File.expand_path(__dir__, 'views/*')
+also_reload File.expand_path(__dir__, 'routes/*')
+
 require_relative 'models/fail'
 require_relative 'models/comment'
 require_relative 'models/user'
 require_relative 'models/like'
 require 'httparty'
 require 'pry'
+
+
 
 enable :sessions
 
