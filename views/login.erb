@@ -1,12 +1,18 @@
-<div style="margin: 0 auto; width: 50% ">
-    <h1>login</h1>
-
+<div class="login">
+    
     <form action="/sessions" method="post">
-        <label for="">email</label>
-        <input type="text" name="email" placeholder="email">
-        <label for="">password</label>
-        <input class='passwordInput' type="password" name="password" placeholder="password">
-        <button class="showButton" type="button">show</button>
-        <button>login</button>
+        <h1>login</h1>
+        <div class="email-section">
+            <label class="email-input" for="">email</label>
+            <input type="text" name="email" placeholder="email">
+        </div>
+        <div class="password-section">
+            <label for="">password</label>
+            <input class='passwordInput' type="password" name="password" placeholder="password">
+        </div>
+        <div class="btn-section">
+            <button class="showButton" type="button">show</button>
+            <button>login</button>
+        </div>
     </form>
 </div>

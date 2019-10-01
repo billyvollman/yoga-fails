@@ -4,9 +4,56 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-
 .center-align-container {
     text-align: center;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.login form {
+    border: 1px solid rgba(226, 201, 206, 0.5);;
+}
+
+.login h1 {
+    font-size: 26px;
+    background-color: rgba(226, 201, 206, 0.5);
+    color: #fff;
+    text-align: center;
+}
+
+.email-input {
+    margin-right: 40px;
+}
+
+.email-section {
+    padding: 10px 20px 0
+}
+
+.password-section {
+    padding: 0 20px
+}
+
+.btn-section {
+    padding: 0 20px 10px;
+    text-align: center;
+}
+
+.post-new-yoga-fail {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+
+
+.post-new-yoga-fail h1 {
+    font-size: 26px;
 }
 
 nav {
