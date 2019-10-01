@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     validates :firstname, presence: true
     validates :firstname, length: { minimum: 2 }
     validates :lastname, presence: true
+    validates :avatar, presence: true
     validates :street_address, presence: true
     validates :city, presence: true
     validates :postcode, presence: true

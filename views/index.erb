@@ -22,18 +22,14 @@
                     <%= time_secs %> sec</div>
                 <% end %>
             </div>
-            <section>
+            <div>
                 <a class="image-main" href="/fails/<%=fail.id %>"> <img src="<%= fail.image_url %>" alt="<%= fail.title %>"></a>
-               
-                <form action="/likes" method="post">
-                    <input type="hidden" name="" value="" >
-                    <button>like</button>
-                </form>
-            </section>
-            <section>
-            </section>
-            <footer>
-            </footer>
+                
+            </div>
+            <div class="image-footer">
+                Likes <%= fail.likes.count %>
+                
+            </div>
         </div>
 
 

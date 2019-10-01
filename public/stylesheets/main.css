@@ -96,6 +96,12 @@ header h1 {
     border: 2px solid rgba(226, 201, 206, 0.5);
 }
 
+.image-footer {
+    display: flex;
+    margin-right: auto;
+    padding: 10px;
+}
+
 /* .home_images img {
     display: block;
     width: 300px;
