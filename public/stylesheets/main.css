@@ -182,6 +182,47 @@ img {
     justify-content: space-between;
 }
 
+.likes-section {
+    position: relative;
+}
+
+.likes-section:hover .heart2 .heart{
+    /* display: block; */
+    opacity: 1;
+}
+
+.heart2 {
+    position: absolute;
+    right: 15px;
+    top: -15px;
+    font-size: 2.2rem;
+    color: white;
+    cursor: pointer;
+    /* display: none; */
+    opacity: 1;
+    transition: all 0.5s linear;
+}
+
+.heart {
+    position: absolute;
+    right: 15px;
+    top: -15px;
+    font-size: 2.2rem;
+    color: red;
+    cursor: pointer;
+    /* display: none; */
+    opacity: 1;
+    transition: all 0.5s linear;
+}
+
+.likes-section form {
+    padding-bottom: 30px;
+}
+
+.hide {
+    display: none;
+}
+
 .fail-title-show-section {
     font-size: 2rem;
 }

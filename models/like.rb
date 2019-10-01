@@ -1,4 +1,4 @@
 class Like < ActiveRecord::Base
     belongs_to :user
-    has_many :likes
+    belongs_to :fail
 end

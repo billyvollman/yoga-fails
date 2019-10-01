@@ -65,6 +65,17 @@ post '/fails' do
   redirect '/'
 end
 
+get '/api/fails' do
+  content_type :json
+  Fail.all.to_json
+end
+
+
+# get '/api/comments' do
+#   content_type :json
+#   Comment.all.to_json
+# end
+
 get '/fails/:id' do
   @fail = Fail.find(params[:id])
   @comments = Comment.where(fail_id: params[:id])
@@ -92,6 +103,50 @@ delete '/fails/:id' do
   fail = Fail.find(params[:id])
   fail.delete
   redirect "/my_fails"
+end
+
+post '/likes' do
+  redirect '/login' unless logged_in?
+  
+  #making a like - only logged in users can do this right?
+  like = Like.new
+  like.fail_id = params[:fail_id]
+  like.user_id = current_user.id
+  like.save
+  redirect "/fails/#{params[:fail_id]}"
+end
+
+post '/api/likes' do
+  content_type :json
+  like = Like.new
+  like.fail_id = params[:fail_id]
+  like.user_id = current_user.id
+  if like.save
+    {
+      message: "we are good buddy!", 
+      likes_count: Like.where(fail_id: like.fail_id).count 
+    }.to_json
+  else
+    {message: "Houston we have a problem!"}.to_json
+  end
+end
+
+post '/api/comments' do
+  content_type :json
+  comment = Comment.new
+  comment.body = params[:body]
+  comment.fail_id = params[:fail_id]
+  comment.user_id = session[:user_id]
+  # binding.pry
+  if comment.save
+    {
+      message: "we are good buddy!",
+      comment: Comment.where(fail_id: comment.fail_id).order(id: :desc)[0].body
+    }.to_json
+    # Comment.where(fail_id: comment.fail_id).last.body
+  else
+    {message: "Houston we have a problem!"}.to_json
+  end
 end
 
 post '/comments' do

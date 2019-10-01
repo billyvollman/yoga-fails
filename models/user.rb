@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
     # include ActiveModel::Validations
     has_many :comments
     has_many :likes
+    has_many :fails
+    
     validates :username, presence: true
     validates :firstname, presence: true
     validates :firstname, length: { minimum: 2 }

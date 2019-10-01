@@ -9,7 +9,7 @@
         <% time_days = (time_diff / 1.day).round %>
         <div class="home_images">
             <div class="image-header">
-                <div><img class="avatar" src="https://instagram.fmel8-1.fna.fbcdn.net/vp/fc379efb6bb7658f0038472f43edc500/5E2FD99E/t51.2885-15/e35/29088977_129714284437521_2843433444199890944_n.jpg?_nc_ht=instagram.fmel8-1.fna.fbcdn.net" alt=""></div>
+                <div><img class="avatar" src="<%= User.find_by(id: fail.user_id.to_i).avatar %>" alt=""></div>
                 <div class="username"><%= User.find_by(id: fail.user_id.to_i).username %></div>
                 <div>
                 <% if time_hr >= 24 %>
