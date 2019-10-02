@@ -8,15 +8,77 @@ body {
     text-align: center;
 }
 
+.create-account {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    font-size: 20px;
+}
+
+.create-account form {
+    border: 1px solid rgba(226, 201, 206, 0.5);
+    width: 40%;
+}
+
+
+.create-account h1 {
+    font-size: 26px;
+    background-color: rgba(226, 201, 206, 0.5);
+    color: #fff;
+    text-align: center;
+}
+
+.create-account-sections {
+    padding: 10px 20px 0;
+    text-align: center;
+}
+
+.create-acct-username-input {
+    margin-right: 43px;
+}
+
+.create-acct-firstname-input {
+    margin-right: 43px;
+}
+
+.create-acct-lastname-input {
+    margin-right: 43px;
+}
+
+.create-acct-avatar-input {
+    margin-right: 74px;
+}
+
+.create-acct-city-input {
+    margin-right: 102px;
+}
+
+.create-acct-postcode-input {
+    margin-right: 48px;
+}
+
+.create-acct-country-input {
+    margin-right: 61px;
+}
+
+.create-acct-email-input {
+    margin-right: 80px;
+}
+
+.create-acct-password-input {
+    margin-right: 42px;
+}
+
 .login {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 50px;
     font-size: 20px;
 }
 
 .login form {
-    border: 1px solid rgba(226, 201, 206, 0.5);;
+    border: 1px solid rgba(226, 201, 206, 0.5);
+    width: 40%;
 }
 
 .login h1 {
@@ -31,11 +93,13 @@ body {
 }
 
 .email-section {
-    padding: 10px 20px 0
+    padding: 10px 20px 0;
+    text-align: center;
 }
 
 .password-section {
-    padding: 0 20px
+    padding: 0 20px;
+    text-align: center;
 }
 
 .btn-section {
@@ -46,14 +110,59 @@ body {
 .post-new-yoga-fail {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 50px;
     font-size: 20px;
 }
 
-
-
 .post-new-yoga-fail h1 {
     font-size: 26px;
+    background-color: rgba(226, 201, 206, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.post-new-yoga-fail form {
+    border: 1px solid rgba(226, 201, 206, 0.5);
+    width: 40%;
+    
+}
+
+.title-section  {
+    padding: 10px 20px 0;
+    text-align: center;
+}
+
+.title-section label  {
+    margin-right: 56px;
+}
+
+.location-section  {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.location-section label {
+    margin-right: 18px;
+}
+
+.tags-section  {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.tags-section label {
+    margin-right: 53px;
+}
+
+.image-url-section  {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.create-btn-section {
+    padding: 0 20px 10px;
+    text-align: center;
 }
 
 nav {
@@ -386,6 +495,19 @@ img {
         padding: 50px 0;
     }
     
+    .login form {
+        width: 60%;
+    }
+    
+    .create-account form {
+        width: 70%;
+      
+    }
+
+    .post-new-yoga-fail form {
+        width: 60%;
+    }
+
 } 
 
 @media (max-width: 30em) {
@@ -405,7 +527,36 @@ img {
     header {
         padding: 20px 0;
     }
+
+    .login form {
+        width: 60%;
+    }
+    
+    .create-account form {
+        width: 100%;
+        
+    }
+
+    .post-new-yoga-fail form {
+        width: 60%;
+    }
     
 } 
 
+@media (max-width: 300px) {
+    
+    .login form {
+        width: 95%;
+    }
+    
+    .create-account form {
+        width: 100%;
+        
+    }
+
+    .post-new-yoga-fail form {
+        width: 95%;
+    }
+    
+} 
 
