@@ -69,6 +69,25 @@ body {
     margin-right: 42px;
 }
 
+.edit-yoga-fail {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+.edit-yoga-fail form {
+    border: 1px solid rgba(226, 201, 206, 0.5);
+    width: 40%;
+}
+
+.edit-yoga-fail h1 {
+    font-size: 26px;
+    background-color: rgba(226, 201, 206, 0.5);
+    color: #fff;
+    text-align: center;
+}
+
 .login {
     display: flex;
     justify-content: center;
@@ -499,6 +518,10 @@ img {
         width: 60%;
     }
     
+    .edit-yoga-fail form {
+        width: 60%;
+    }
+
     .create-account form {
         width: 70%;
       
@@ -531,6 +554,10 @@ img {
     .login form {
         width: 60%;
     }
+
+    .edit-yoga-fail form {
+        width: 60%;
+    }
     
     .create-account form {
         width: 100%;
@@ -546,6 +573,10 @@ img {
 @media (max-width: 300px) {
     
     .login form {
+        width: 95%;
+    }
+
+    .edit-yoga-fail form {
         width: 95%;
     }
     
