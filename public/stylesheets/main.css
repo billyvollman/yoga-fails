@@ -298,12 +298,28 @@ img {
     width: 30%;
 }
 
+.your-yoga-fail-container {
+    /* text-align: center; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+    /* max-width: 1500px;
+    margin: auto; */
+}
+
 .your-yoga-fail-photo {
-    padding: 20px 0;
+    /* padding: 20px 0; */
+    margin: 0 auto;
 }
 
 .your-yoga-fail-photo p {
     padding: 20px 0;
+}
+
+.your-yoga-fail-photo img {
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
 }
 
 .hide {
