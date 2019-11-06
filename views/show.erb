@@ -132,7 +132,9 @@
                     <form action="/comments" method="post">
                         <textarea name="body" required></textarea>
                         <input type="hidden" name="fail_id" value="<%= @fail.id %>">
-                        <button data-fail-id="<%= @fail.id %>" class="post-comment">post comment</button>
+                        <div>
+                            <button data-fail-id="<%= @fail.id %>" class="post-comment">post comment</button>
+                        </div>
                     </form>
 
                     <% @comments.each do |comment| %>
