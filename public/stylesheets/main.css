@@ -5,7 +5,11 @@ body {
 }
 
 .center-align-container {
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: auto;
 }
 
 .create-account {
