@@ -1,4 +1,4 @@
-Creating my first CRUD web app using Ruby and Sinatra.
+Creating my first CRUD web app using Ruby and Sinatra..
 
 Website will be about **Yoga Fails**.
 
